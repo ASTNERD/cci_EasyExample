@@ -105,7 +105,7 @@ iso_u32 Gesamtziel = 80;
 
 
 
-//Das ist meine Favorisierte Schreibweise. man muss sich aber das ? und den : für WENN und SONST einprägen.
+//Das ist meine Favorisierte Schreibweise. man muss sich aber das ? und den : fï¿½r WENN und SONST einprï¿½gen.
 void CheckZiel(iso_u8 u8Instance) {
 
 	IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Tagesziel,  Tageszaehler  >= Tagesziel  ? OutputString_ZielErreicht : ID_NULL);
@@ -153,10 +153,10 @@ void VTC_handleSoftkeysAndButtons_RELEASED(const struct ButtonActivation_S *pBut
 	case SoftKey_MinusMinus:
 	// Button mit Namen  Button_MinusMinus mit ID 6003 wurde losgelassen.
 	case Button_MinusMinus:
-		//bei Zählerstand 0 soll er nicht mehr -- machen.
+		//bei Zï¿½hlerstand 0 soll er nicht mehr -- machen.
 		if (Tageszaehler > 0)
 			Tageszaehler--;
-		//bei Zählerstand 0 soll er nicht mehr -- machen.
+		//bei Zï¿½hlerstand 0 soll er nicht mehr -- machen.
 		if (Gesamtzaehler > 0)
 			Gesamtzaehler--;
 		break;
@@ -179,9 +179,9 @@ void VTC_handleSoftkeysAndButtons_RELEASED(const struct ButtonActivation_S *pBut
 	// Senden des Wertes der lokalen Variable Gesamtzaehler an die NumberVariable_Gesamtzaehler
 	IsoVtcCmd_NumericValue(pButtonData->u8Instance, NumberVariable_Gesamtzaehler, Gesamtzaehler);
 
-	// Speichern des Tageszaehler; non-volatile; nicht flüchtig; spannungsausfallsicher gespeichert
+	// Speichern des Tageszaehler; non-volatile; nicht flï¿½chtig; spannungsausfallsicher gespeichert
 	setU32("CF-A", "Tageszaehler", Tageszaehler);
-	// Speichern des Gesamtzaehler; non-volatile; nicht flüchtig; spannungsausfallsicher gespeichert
+	// Speichern des Gesamtzaehler; non-volatile; nicht flï¿½chtig; spannungsausfallsicher gespeichert
 	setU32("CF-A", "Gesamtzaehler", Gesamtzaehler);
 
 	CheckZiel(pButtonData->u8Instance);
@@ -206,18 +206,18 @@ void VTC_handleNumericValues(const struct InputNumber_S * pInputNumberData) {
 
 
 	case NumberVariable_Gesamtziel:
-		// Variable mit dem Namen NumberVariable_Gesamtziel wurde vom Benutzer am UT Verändert
+		// Variable mit dem Namen NumberVariable_Gesamtziel wurde vom Benutzer am UT Verï¿½ndert
 		Gesamtziel = pInputNumberData->newValue;
 		ESP_LOGI(TAG, "you typed Gesamtziel: %i", pInputNumberData->newValue); //der eingegebene Wert findet sich in pInputNumberData->newValue
-		// Speichern des Gesamtziel; non-volatile; nicht flüchtig; spannungsausfallsicher gespeichert
+		// Speichern des Gesamtziel; non-volatile; nicht flï¿½chtig; spannungsausfallsicher gespeichert
 		setU32("CF-A", "Gesamtziel", Gesamtziel);
 		break;
 
 	case NumberVariable_Tagesziel:
-		// Variable mit dem Namen NumberVariable_Tagesziel wurde vom Benutzer am UT Verändert
+		// Variable mit dem Namen NumberVariable_Tagesziel wurde vom Benutzer am UT Verï¿½ndert
 		Tagesziel = pInputNumberData->newValue;
 		ESP_LOGI(TAG, "you typed Tagesziel: %i", pInputNumberData->newValue); //der eingegebene Wert findet sich in pInputNumberData->newValue
-		// Speichern des Tagesziel; non-volatile; nicht flüchtig; spannungsausfallsicher gespeichert
+		// Speichern des Tagesziel; non-volatile; nicht flï¿½chtig; spannungsausfallsicher gespeichert
 		setU32("CF-A", "Tagesziel", Tagesziel);
 		break;
 
@@ -243,7 +243,7 @@ void VTC_setNewVT(const ISOVT_EVENT_DATA_T* psEvData)
 void VTC_setPoolReady(const ISOVT_EVENT_DATA_T* psEvData)
 {
 
-	// beim nächsten Anstecken des Gerätes muss der letzte gespeicherte Wert auf das Display gesendet werden.
+	// beim nï¿½chsten Anstecken des Gerï¿½tes muss der letzte gespeicherte Wert auf das Display gesendet werden.
 
 	// Laden aus dem Spannungsausfallsicheren Speicher ins RAM
 	// STANDARD-Wert = 0; wenn nichts abgespeichert.
